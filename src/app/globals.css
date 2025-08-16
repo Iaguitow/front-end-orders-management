@@ -5,7 +5,7 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
+    --background: #0d1117;
     --foreground: #ededed;
   }
 }
@@ -39,4 +39,71 @@ a {
   html {
     color-scheme: dark;
   }
+}
+
+
+
+/* ##################################################################### 
+   ######################## BELOW - LOGIN STYLE ########################  
+   ##################################################################### */ 
+
+/* Deixe o fundo do modal transparente */
+.login-modal .ant-modal-content {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(51, 138, 255, 0.3);
+  box-shadow: 15px 32px 50px rgba(0, 0, 0, 1);
+  color: white;
+}
+
+/* Estiliza o texto e campos dentro do modal */
+.login-modal .ant-modal-title,
+.login-modal .ant-form-item-label label,
+.login-modal .ant-input,
+.login-modal .ant-input-password input {
+  color: white;
+}
+
+.login-modal .login-email-input,
+.login-modal .login-password-input {
+  background: transparent;
+  border-width: 2px;
+}
+
+/* Estiliza o background do login-input para quando nao atender as regras */
+.login-email-input.ant-input-status-error, 
+.login-password-input.ant-input-status-error{
+  background-color: transparent !important;
+}
+
+.ant-input-password .anticon {
+  color: white !important;   /* muda a cor */
+  font-size: 18px; /* opcional: muda tamanho */
+}
+
+/*Estiliza o checkbox do login*/
+.login-check-remember{
+  color: white;
+}
+
+/* Estiliza o botao de logar*/
+.login-form-item-button-submit{
+  text-align: center;
+}
+.login-button-submit{
+  font-size: 16px;
+  font-weight: bold;
+  font-family:Arial, Helvetica, sans-serif;
+  width: 200px;
+}
+
+/* Alvo: inputs dentro do modal com classe .login-modal que foram preenchidos automaticamente */
+.login-modal input:-webkit-autofill,
+.login-modal input:-webkit-autofill:hover,
+.login-modal input:-webkit-autofill:focus,
+.login-modal input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 1000px transparent inset; /* fundo do input */
+  -webkit-text-fill-color: #fff; /* cor da fonte */
+  caret-color: #fff; /* cor do cursor */
+  transition: background-color 5000s ease-in-out 0s;
 }

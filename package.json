@@ -15,10 +15,14 @@
     "antd": "^5.26.3",
     "firebase": "^11.10.0",
     "next": "15.3.4",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
     "react-redux": "^9.2.0"
   },
+  "resolutions": {
+  "react": "18.2.0",
+  "react-dom": "18.2.0"
+},
   "devDependencies": {
     "@eslint/eslintrc": "^3",
     "@testing-library/jest-dom": "^6.6.3",
