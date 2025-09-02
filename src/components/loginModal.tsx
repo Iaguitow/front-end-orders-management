@@ -1,10 +1,10 @@
 "use client"
 
 import ClientOnly from './clientOnly'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Modal, Input, Button, Form, Popover } from 'antd'
 import 'antd/dist/reset.css'
-import { useRouter } from 'next/navigation';
+import { useRouter, usePathname } from 'next/navigation';
 import { login } from "../services/firebase_auth.js"
 
 export default function HomePage() {
@@ -12,24 +12,30 @@ export default function HomePage() {
   const [openPop, setOpenPop] = useState(false)
   const [loading, setLoading] = useState(false)
   const router = useRouter();
+  const pathname = usePathname();
 
   const onFinishLogin = async (values: any) => {
     setLoading(true);
     try {
-      const user = await login(values.email, values.password);
-      setOpen(false);
-      alert(`Bem-vindo, ${user.email}`);
-      router.push("/dashboard");
-      setLoading(false);
+      const user = await login(values.email, values.password).then(() =>{
+        router.push("/dashboard")
+
+      })
 
     } catch (error: any) {
       setOpenPop(true);
       console.log("DEU RUIM");
-      alert(`Login failed, ${error}`);
 
     }
 
   };
+
+  useEffect(()=>{
+    if (pathname === "/dashboard") {
+        setLoading(false);
+        setOpen(false);
+    }
+  },[pathname]);
 
   return (
     <ClientOnly>

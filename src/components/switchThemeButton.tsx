@@ -11,6 +11,7 @@ export default function ThemeSwitcher() {
                 size="large"
                 shape="round"
                 value={theme}
+                style={{border:"1px solid"}}
                 options={[
                     { value: 'light', icon: <SunOutlined /> },
                     { value: 'dark', icon: <MoonOutlined /> },

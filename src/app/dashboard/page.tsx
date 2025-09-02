@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { onAuthStateChanged } from 'firebase/auth';
+import { onAuthStateChanged, User } from 'firebase/auth';
 import { auth } from "@/services/firebase_auth"
 
 
@@ -14,12 +14,13 @@ import { Spin } from 'antd';
 export default function DashboardPage() {
     const router = useRouter();
     const [loading, setLoading] = useState(true);
-    const [user, setUser] = useState<any>(null);
+    const [user, setUser] = useState<User | null>(null);
 
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, (user) => {
             if (user) {
                 setUser(user);
+                
             } else {
                 router.push('/login');
             }
@@ -41,8 +42,6 @@ export default function DashboardPage() {
         <ThemeProvider>
             <div className="p-8">
                 <SideDrawer />
-                <h1>Bem-vindo, {user?.email}</h1>
-                <p>Esta é a homepage protegida 🎉</p>
             </div>
         </ThemeProvider>
     );
