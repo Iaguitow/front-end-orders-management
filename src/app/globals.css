@@ -113,9 +113,52 @@ a {
   border-radius: 0 !important;
 }
 
+.ant-collapse-header {
+  background-color: var(--collapse-bg);
+  color: var(--collapse-text) !important;
+  border-radius: 0 !important;
+  border: none !important;
+}
 
-/* Cor ao passar o mouse */
-.drawer-collapse .ant-collapse-header:hover {
-  background-color: #1677ff; /* Azul padrão Ant Design */
-  color: white; /* Texto branco */
+.ant-drawer-footer {
+  background-color: var(--collapse-bg);
+  color: var(--collapse-text) !important;
+  border: 0 !important;
+  height: 150PX;
+}
+
+.ant-drawer-header {
+  border: 0 !important;
+  
+}
+.ant-drawer-title {
+  font-size: 30px !important;
+  font-weight: bold !important;
+  color: var(--drawer-title) !important;
+}
+
+/* Make the close button larger and change colour */
+.ant-drawer .ant-drawer-close {
+  font-size: 24px; 
+  font-weight: bold !important;
+  color: var(--drawer-title) !important;
+}
+
+.btn-drawer-options {
+  height: 50px;           
+  border-radius: 0; 
+  width: 100%;            
+  justify-content: flex-start;
+  text-align: left;
+}
+
+.btn-drawer-options.active {
+    background-color: var(--btn-active-drawer-bg);
+    color: var(--btn-active-drawer-color);
+    font-weight: var(--btn-active-drawer-fontweight);
+}
+
+.drawer-badges .ant-badge-count {
+  min-width: 35px !important;
+  font-size: 16px;
 }

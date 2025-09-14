@@ -7,7 +7,7 @@ import { auth } from "@/services/firebase_auth"
 
 
 import { ThemeProvider } from '../../hooks/contexts/themeContext';
-import SideDrawer from '@/components/drawer';
+import ToSendPage from '../depot-transfers/to-send/page';
 import { Spin } from 'antd';
 
 
@@ -41,7 +41,7 @@ export default function DashboardPage() {
     return (
         <ThemeProvider>
             <div className="p-8">
-                <SideDrawer />
+                <ToSendPage/>
             </div>
         </ThemeProvider>
     );

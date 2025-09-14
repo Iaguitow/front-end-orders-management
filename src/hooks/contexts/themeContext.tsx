@@ -15,6 +15,18 @@ const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 export function ThemeProvider({ children }: { children: ReactNode }) {
   const [theme, setTheme] = useState<ThemeType>('light');
 
+  useEffect(() => {
+  const root = document.documentElement;
+  if (theme === "light") {
+    root.style.setProperty("--collapse-bg", "rgba(0, 122, 255, 0.6)");
+    root.style.setProperty("--collapse-text", "white");
+    root.style.setProperty("--drawer-title", "rgba(0, 122, 255, 0.6)");
+  } else {
+    root.style.setProperty("--collapse-bg", "rgba(22, 119, 255, 1)");
+    root.style.setProperty("--drawer-title", "white");
+  }
+}, [theme]);
+
   // Inicializa com o tema salvo no localStorage
   useEffect(() => {
     const savedTheme = localStorage.getItem('theme') as ThemeType;
